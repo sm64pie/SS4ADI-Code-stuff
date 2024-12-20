@@ -1,0 +1,216 @@
+Moon Jump
+
+D033AFA1 0020
+8133B1BC 4220
+D033B1BD 0020
+8133B17C 0300
+D033B1BD 0020
+8133B17E 0880
+
+
+120F000 for importing collision pointers to, copy from this location into behavior
+
+custom behavior bank location (Copy) = 187F0B0
+custom behavior bank location (new) = 187F0E0
+
+Shrink Warp rotating
+
+00 04 00 00
+11 01 00 01
+2F 00 00 00 08 00 00 00
+0E 5C 00 B8
+0E 5D 00 D0
+08 00 00 00
+0C 00 00 00 80 40 60 00
+0F 13 01 00
+10 05 00 00
+10 2B 00 00
+09 00 00 00
+
+-------------------------
+TOP Deathtimer
+00 04 00 00
+11 01 00 41
+0C 00 00 00 80 25 07 24
+0C 00 00 00 80 40 62 C0
+08 00 00 00
+10 05 00 00
+0C 00 00 00 80 40 62 F8
+09 00 00 00
+
+TOP Deathtimer asm
+init: (1201900)
+3C 18 80 36 8F 18 11 60 93 19 01 89 17 20 00 03 44 99 20 00 10 00 00 06 AF 00 00 F4 3C 01 42 48 44 81 30 00 46 80 21 20 46 06 22 02 E7 08 00 F4 03 E0 00 08 00 00 00 00
+
+loop: (1201940)
+27 BD FF E0 AF BF 00 14 AF B6 00 18 3C 16 80 36 8E D6 11 60 C6 C4 01 5C C6 C6 00 F4 46 06 20 3C 3C 0D 80 34 45 00 00 10 85 AE B2 6A 31 CE FF BF A5 AE B2 6A 0C 09 25 78 34 04 00 02 92 CB 01 8A 2D 61 00 01 14 20 00 06 C6 CC 00 A0 C6 CE 00 A4 0C 0B CA E2 8E C6 00 A8 92 C8 01 8B A0 48 01 88 10 00 00 1E A6 C0 00 74 92 CF 01 88 34 18 00 1E 01 F8 00 19 00 00 68 12 8E D9 01 54 03 2D 08 2A 14 20 00 16 00 00 00 00 0C 09 25 78 34 04 00 02 3C 0D 80 34 85 AE B2 6A 31 CE FF BF A5 AE B2 6A 3C 0E 80 36 8D CE 11 60 92 CF 01 8A 31 EF 00 01 15 E0 00 09 3C 0D 80 34 A5 A0 B2 1E 8D AF B1 7C 31 EF 01 C0 34 18 01 80 15 F8 00 04 3C 0A 00 02 25 4A 13 16 AD AA B1 7C A6 C0 00 74 8F B6 00 18 8F BF 00 14 03 E0 00 08 27 BD 00 20
+
+Deathtimer (bparam1 = time limit in seconds, bparam2 = hitbox size for deactivation (0 = cant be deactivated), bparam3 = variable (0 = death when time is up, 1 = spawn star on deactivation, 2 = both), bparam4 = star id if applicable)
+
+-------------------------
+Shrink platform behavior
+00 09 00 00 11 01 00 01 2A 00 00 00 07 02 01 00 08 00 00 00 0C 00 00 00 80 2A A8 30 0C 00 00 00 80 38 39 CC 09 00 00 00
+
+Shrink platform ASM (65830)
+27 BD FF E8 AF BF 00 14 3C 03 80 36 8C 63 11 60 8C 68 01 4C 15 00 00 0F 00 00 00 00 8C 68 01 54 10 00 00 34 00 00 00 00 3C 06 13 00 24 C6 2A 48 00 60 20 25 00 00 00 00 24 05 00 97 0C 0A 8F 3F 00 00 00 00 10 40 00 1A 24 01 00 01 AC 60 01 54 AC 61 01 4C 8C 68 01 54 15 00 00 04 00 00 00 00 3C 04 50 23 0C 0B 28 51 34 84 00 81 8C 68 01 54 29 01 00 80 14 20 00 02 00 00 00 00 10 00 00 0F 44 88 10 00 3C 01 43 00 44 81 20 00 46 80 10 A0 46 04 10 83 3C 01 3F 80 44 81 60 00 3C 09 BF 80 44 89 30 00 46 06 10 82 0C 0A 7D 0C 46 02 63 00 8F BF 00 14 03 E0 00 08 27 BD 00 18 29 01 01 00 14 20 FF FB 00 00 00 00 24 08 00 01 AC 68 01 80 3C 01 3F 80 0C 0A 7D 0C 44 81 60 00 10 00 FF F4 AC 60 01 4C 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 15 00 FF D1 8C 79 01 80 17 20 FF CF 00 00 00 00 10 00 FF C8 00 00 00 00 27 BD 00 20 03 E0 00 08 00 00 00 00 27 BD FF E8 AF BF 00 14 3C 04 80 36 3C 05 80 33 24 A5 01 C0 0C 0A 8D 29 8C 84 11 60 10 00 00 01 00 00 00 00 8F BF 00 14 27 BD 00 18 03 E0 00 08 00 00 00 00
+
+-------------------------
+SSA Rotating block when jumping
+00 09 00 00
+11 01 00 01
+2A 00 00 00 07 00 37 20
+08 00 00 00
+0C 00 00 00 80 40 1A 30
+09 00 00 00
+
+ASM (1201A30):
+27 BD FF E8 AF BF 00 14 3C 08 80 36 8D 08 11 60 34 19 00 01 8D 09 01 88 11 39 00 11 8D 19 00 D8 3C 0A 80 34 8D 4B B1 7C 31 6D 01 C0 8D 4C B1 80 31 8C 01 C0 34 0E 00 80 55 AE 00 15 AD 00 01 88 11 8E 00 13 34 01 00 02 10 29 00 11 AD 19 00 D8 34 18 00 01 AD 00 01 54 10 00 00 0D AD 18 01 88 27 39 0E 39 8D 0D 01 54 51 A0 00 01 27 39 FF FF 34 0C 00 09 AD 19 00 D8 34 01 00 02 15 8D 00 06 33 39 80 00 AD 19 00 D8 10 00 00 03 AD 01 01 88 0C 0E 0E 73 00 00 00 00 8F BF 00 14 03 E0 00 08 27 BD 00 18
+-------------------------
+TOP Star Spawn upon enemy death
+00 04 00 00
+11 01 00 01
+08 00 00 00
+0C 00 00 00 80 40 60 C8
+09 00 00 00
+
+ASM (1201AD4):
+27 BD FF E0 AF BF 00 14 3C 0C 80 36 8D 8C 11 60 3C 0D 13 00 8D 8E 01 88 00 0E 72 00 00 0E 72 02 0C 0A 7E 57 01 CD 20 25 14 40 00 07 3C 0A 80 36 8D 4A 11 60 A5 40 00 74 C5 4C 00 A0 C5 4E 00 A4 0C 0B CA E2 8D 46 00 A8 8F BF 00 14 03 E0 00 08 27 BD 00 20
+
+Star Spawn By Behavior Killed (bparam1 = star id, bparam2 = second byte of target behavior, bparam3 = third byte of target behavior, bparam4 = fourth byte of target behavior)
+
+Example:
+Copy the value labled "Behavior Address" in Rom Manager ("Goomba" behavior is 0x1300472C)
+Ignore the "0x13" and split up the remaining digits into groups of 2 (0x1300472C would become 00, 47, and 2C)
+preface each group with "0x" (0x00, 0x47, and 0x2C)
+Set the first group to bparam2, the second group to bparam3, and the last group to bparam4 (bparam2 = 0x00, bparam3 = 0x47, bparam4 = 0x2C)
+
+When used with behavior 0x004070A0, this will spawn a star when every goomba in the level is killed
+When used with behavior 0x00407250/0x004072A0, this will despawn/spawn the nearest goomba based on star counts
+-------------------------
+MB Floating boat/platform (1202320/1202350)
+00 09 00 00
+11 01 00 09
+2A 00 00 00 07 02 68 E0
+0E 1D 00 40
+2D 00 00 00
+08 00 00 00
+0C 00 00 00 80 2F 69 84
+0C 00 00 00 80 38 39 CC
+09 00 00 00
+-------------------------
+SP Falling and Exploding
+00 09 00 00
+11 01 00 41
+2A 00 00 00 00 00 00 00
+0E 43 7F FF
+2D 00 00 00
+08 00 00 00
+0C 00 00 00 80 40 88 F0
+0C 00 00 00 80 38 39 CC
+09 00 00 00
+
+Metal Ball trajectory (Precipice)
+1909, 2842, -2469
+3008, 2379, -812
+3050, 1965, 750
+2222, 1515, 2250
+1545, -1395, 2517
+0,0, -6500
+-------------------------
+AA Flower Platform
+00 09 00 00
+11 01 20 41
+0C 00 00 00 80 2A 41 20
+0C 00 00 00 80 30 51 00
+2A 00 00 00 00 00 00 00
+08 00 00 00
+0C 00 00 00 80 30 5A 58
+0C 00 00 00 80 38 39 CC
+09 00 00 00
+-------------------------
+Moving Water Wall TT
+00 09 00 00 
+2A 00 00 00 00 00 00 00
+0E 43 4B FF 
+08 00 00 00 
+0D 06 00 0F 
+0C 00 00 00 80 38 39 CC 
+09 00 00 00
+-------------------------
+WW ball trajectories
+3:
+4881, 1579, 1852
+952, 829, -441
+-4125, 319, -3189
+
+4:
+5111, 1579, -2931
+952, 829, -441
+-4120, 79, 2544
+
+Stop boss music change:
+9506C: 29 E1 00 XX
+King Bob-omb (Start), Whomp (Start), King Bob-omb (throw him out), Eyerock (Start), Wiggler (Start)
+setting equal to 05 leaves full array, lower this number to cut out songs from array loop (02 would cut out all songs but King Bob omb)
+
+Continue playing boss music after boss is over:
+95188: 29 81 00 XX, same as above
+-------------------------
+Beat block:
+00 09 00 00
+11 01 00 01
+2A 00 00 00 09 00 83 30
+08 00 00 00
+0c 00 00 00 80 40 29 40
+09 00 00 00
+
+09 00 98 60 - DD flip platform collision 
+09 00 AE B0 - DD rotating collision
+
+
+--------------------------
+TOP Dual Warp
+00 06 00 00
+11 01 00 09
+10 2A 20 00
+10 05 00 00
+0C 00 00 00 80 40 27 28
+08 00 00 00
+0C 00 00 00 80 2A AA 60
+09 00 00 00
+
+
+
+ASM (0x1202728)
+3C 18 80 36 8F 18 11 60 93 0F 01 8A 3C 0E 80 34 95 CE B2 1A 01 CF 08 2A 54 20 00 02 93 19 01 89 93 19 01 8B 03 E0 00 08 A3 19 01 89
+
+TOP Sparkles
+00 06 00 00
+11 01 00 01
+23 00 00 00 00 64 00 64
+10 05 00 00
+08 00 00 00
+1C 00 00 00 00 00 00 00 13 00 2A F0
+0C 00 00 00 80 40 27 54
+09 00 00 00
+ASM (0x1202754): 
+27 BD FF E0 AF BF 00 14 3C 0D 80 36 8D A5 11 58 0C 0A 85 09 8D A4 11 60 3C 0E 80 36 8D CE 11 60 91 CF 01 88 15 E0 00 03 00 00 00 00 54 40 00 01 A5 C0 00 74 8F BF 00 14 03 E0 00 08 27 BD 00 20
+--------------------------
+Double Jump Crystal
+
+00 04 00 00 // Start behavior (object type 0x04 for regular enemies/objects)
+11 01 00 01 // Set update flag
+10 05 00 00 // Enable Mario interaction
+10 2B 00 00 // Enable general interaction
+23 00 00 00 00 50 00 64 // Set collision cylinder
+08 00 00 00 // Start loop
+0C 00 00 00 80 40 61 4C // Call custom ASM function
+09 00 00 00 // End loop
+
+-------------------------
+0x1208A34 Dim Sphere Music Preview Object
+0x1206B5C Bowser A-side code
+-------------------------
+81E33: Whomp health
+0x1206E40 Whomp A side control object
+0x1207080 Whomp B side control object
